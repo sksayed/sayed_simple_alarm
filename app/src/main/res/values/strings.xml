@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SayedSimpleAlarm</string>
+    <string name="empty_view_text">Please tap the Floating Button to add an alarm</string>
 </resources>
