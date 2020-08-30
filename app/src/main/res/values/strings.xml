@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">SayedSimpleAlarm</string>
     <string name="empty_view_text">Please tap the Floating Button to add an alarm</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thrusday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="add_label_hint">Enter Lable of the Alarm</string>
+    <string name="label">Lable</string>
+    <string name="time">Time</string>
 </resources>

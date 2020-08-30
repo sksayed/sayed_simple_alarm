@@ -9,6 +9,7 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * this will be the model of an alarm
+ * this class has to be parcelable so that we can move it around
  */
 public class Alarm {
     private static final String TAG = Alarm.class.getSimpleName();

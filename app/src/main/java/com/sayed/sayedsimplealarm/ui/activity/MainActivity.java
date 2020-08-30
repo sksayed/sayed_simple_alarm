@@ -14,13 +14,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (findViewById(R.id.main_fragment_container) !=  null) {
+      /*  if (findViewById(R.id.main_fragment_container) !=  null) {
             MainFragment mainFragment = new MainFragment();
              getSupportFragmentManager()
                      .beginTransaction()
                      .add(R.id.main_fragment_container , mainFragment)
                      .addToBackStack(null)
                      .commit();
-        }
+        }*/
     }
 }
