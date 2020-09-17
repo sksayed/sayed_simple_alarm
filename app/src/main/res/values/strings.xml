@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SayedSimpleAlarm</string>
+    <string name="app_name">Sayed Simple Alarm</string>
     <string name="empty_view_text">Please tap the Floating Button to add an alarm</string>
     <string name="monday">Monday</string>
     <string name="tuesday">Tuesday</string>
