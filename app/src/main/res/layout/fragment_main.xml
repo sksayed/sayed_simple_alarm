@@ -1,50 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.sayed.sayedsimplealarm.ui.fragment.MainFragment"
-    >
+    tools:context="com.sayed.sayedsimplealarm.ui.fragment.MainFragment">
 
-    <include layout="@layout/custom_toolbar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        />
-
-
-    <com.sayed.sayedsimplealarm.customrecycler.EmptyRecyclerView
-        android:id="@+id/empty_recycler_view"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="@dimen/android_material_design_padding"
-        android:paddingTop="@dimen/android_material_design_padding"
-        android:paddingStart="@dimen/android_material_design_padding"
-        android:paddingEnd="@dimen/android_material_design_padding"
-        />
+        android:fitsSystemWindows="true">
 
-    <TextView
-        android:id="@+id/empty_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/empty_view_text"/>
+        <include
+            android:id="@+id/main_toolbar"
+            layout="@layout/custom_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
 
+        <com.sayed.sayedsimplealarm.customrecycler.EmptyRecyclerView
+            android:id="@+id/empty_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/main_toolbar"
+            android:paddingStart="@dimen/android_material_design_padding"
+            android:paddingTop="@dimen/android_material_design_padding"
+            android:paddingEnd="@dimen/android_material_design_padding"
+            android:paddingBottom="@dimen/android_material_design_padding" />
+
+        <TextView
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/empty_view_text" />
+
+    </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_alarm_add_24"
         android:layout_gravity="bottom|end"
+        android:layout_marginRight="@dimen/android_material_design_padding"
         android:layout_marginBottom="16dp"
         android:background="?android:attr/selectableItemBackground"
-        android:layout_marginRight="@dimen/android_material_design_padding"
         android:elevation="6dp"
-        app:pressedTranslationZ="12dp"
-        />
+        android:src="@drawable/ic_baseline_alarm_add_24"
+        app:pressedTranslationZ="12dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,4 +1,4 @@
-package com.sayed.sayedsimplealarm.Allintefaces;
+package com.sayed.sayedsimplealarm.allintefaces;
 
 import com.sayed.sayedsimplealarm.model.Alarm;
 

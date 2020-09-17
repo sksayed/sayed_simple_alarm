@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sayed.sayedsimplealarm.Allintefaces.IAddEmptyView;
+import com.sayed.sayedsimplealarm.allintefaces.IAddEmptyView;
 
 public class EmptyRecyclerView extends RecyclerView implements IAddEmptyView {
     private static final String TAG = EmptyRecyclerView.class.getSimpleName();

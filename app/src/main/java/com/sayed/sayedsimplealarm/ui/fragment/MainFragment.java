@@ -1,7 +1,5 @@
 package com.sayed.sayedsimplealarm.ui.fragment;
 
-import android.Manifest;
-import android.app.PendingIntent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -22,7 +21,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sayed.sayedsimplealarm.R;
 import com.sayed.sayedsimplealarm.customrecycler.AlarmAdapter;
 import com.sayed.sayedsimplealarm.customrecycler.EmptyRecyclerView;
-import com.sayed.sayedsimplealarm.service.AlarmService;
 import com.sayed.sayedsimplealarm.utilities.StringUtilities;
 
 public class MainFragment extends Fragment {
@@ -31,6 +29,8 @@ public class MainFragment extends Fragment {
     private AlarmAdapter alarmAdapter;
     private FloatingActionButton fab;
     private Toolbar toolbar;
+    private MainFragmentViewModel mViewModel ;
+
 
     @Nullable
     @Override
@@ -48,7 +48,6 @@ public class MainFragment extends Fragment {
             AddEditAlarmFragment addEditAlarmFragment = new AddEditAlarmFragment();
             Bundle bundle = new Bundle();
             bundle.putString(StringUtilities.TOOLBAR_EXTRA, StringUtilities.ADD_ALARM);
-            addEditAlarmFragment.setArguments(bundle);
            /* alarmAdapter.setAlarmList(AlarmService.getTestAlarms());
             alarmAdapter.notifyDataSetChanged();*/
            /* getActivity().getSupportFragmentManager()
@@ -56,16 +55,24 @@ public class MainFragment extends Fragment {
                     .add(R.id.main_fragment_container, addEditAlarmFragment)
                     .addToBackStack(null)
                     .commit();*/
-            NavHostFragment.findNavController(this).navigate(R.id.action_mainFragment_to_addEditAlarmFragment);
+            NavHostFragment
+                    .findNavController(this).navigate(R.id.action_mainFragment_to_addEditAlarmFragment , bundle);
         });
+
+        mViewModel.getAllAlarms().observe( getViewLifecycleOwner() , list -> {
+            alarmAdapter.setAlarmList(list);
+            alarmAdapter.notifyDataSetChanged();
+        });
+
     }
 
     private void initViews(View view) {
         emptyRecyclerView = view.findViewById(R.id.empty_recycler_view);
         empty_view = view.findViewById(R.id.empty_view);
         fab = view.findViewById(R.id.fab);
-        toolbar = view.findViewById(R.id.toolbar);
+        toolbar =(Toolbar) view.findViewById(R.id.main_toolbar);
         emptyRecyclerView.setmEmptyView(empty_view);
+        mViewModel = new  ViewModelProvider(getActivity()).get(MainFragmentViewModel.class);
     }
 
     private void loadContents() {
@@ -80,5 +87,9 @@ public class MainFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbar.setTitle("sayeds alarm");
     }
+
+
+
+
 
 }
